@@ -45,7 +45,7 @@ function showMain() {
 
 function makeElement(firstDate) {
   let weekly = 100;
-  let Currentdate = 1;
+  let dateSet = 1;
   for (let i = 0; i < 6; i++) {
     let weeklyEl = document.createElement('div');
     weeklyEl.setAttribute('class', weekly);
@@ -53,18 +53,18 @@ function makeElement(firstDate) {
     for (let j = 0; j < 7; j++) {
       // i === 0이여야 하는 이유는 첫 날짜를 찍고 그 다음 날짜가 0번째 칸부터 다시 그려져야 하기 때문
       // firstDate.getMonth() => 현재 달의 일수가 몇일인지 반환해주고, 이 조건은 반환 된 값에 따라 출력해 준 후, 달력 출력 종료조건이다.
-      if (i === 0 && j < firstDate.getDay() || Currentdate > pageYear[firstDate.getMonth()]) {
+      if (i === 0 && j < firstDate.getDay() || dateSet > pageYear[firstDate.getMonth()]) {
         // 만약 해당 칸에 날짜가 없으면 div엘리먼트만 생성한다.
         let dateEl = document.createElement('div');
         weeklyEl.appendChild(dateEl);
       } else {
         // 해당 칸에 날짜가 있으면 div엘리먼트 생성 후 해당 날짜 넣어주기
         let dateEl = document.createElement('div');
-        dateEl.textContent = Currentdate;
-        dateEl.setAttribute('class', Currentdate);
-        dateEl.setAttribute('id', `${today.format2()}-${Currentdate}`);
+        dateEl.textContent = dateSet;
+        dateEl.setAttribute('class', dateSet);
+        dateEl.setAttribute('id', `${today.format2()}-${dateSet}`);
         weeklyEl.appendChild(dateEl);
-        Currentdate++;
+        dateSet++;
       }
     }
     weekly++;
