@@ -133,6 +133,7 @@ header > h1 > span {color: #a7a7a7; font-size: 24px; font-weight: 400; vertical-
 }
 .todoList > li {position: relative;}
 .todoList > li > span{
+  white-space: nowrap;
   width: 70%;
   overflow: hidden;
   display: block;
